@@ -1,0 +1,63 @@
+#:kivy 1.11.1
+
+
+WindowManager:
+    background_color: 0.0705, 0.082, 0.113, 1
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    InscriptionScreen:
+    QuizzScreen:
+    
+
+
+<InscriptionScreen>
+    name:"inscription"
+    GridLayout:
+        cols:1
+        Image:
+            source:"./test.png"
+            #background_color: 0, 1, 0, 1
+            padding:0,50,0,0
+            size_hint:1,1.25
+            allow_stretch: True
+            keep_ratio: False
+        GridLayout:
+            size_hint:1,2.5
+            cols:1
+            padding:20,35
+            spacing:0,20
+            Label:
+                text:"Veuillez entrer le nom de chaque personne de l'équipe"
+            TextInput:
+                multiline:False
+                id: nom
+            Label:
+                text:"Veuiller entrer le nom de l'équipe"
+            TextInput:
+                multiline:False
+                id: equipe
+        GridLayout:
+            cols:2
+            size_hint:1,.25
+            Button:
+                text:"Commencer la partie"
+                size_hint:.5,.25
+                on_press: 
+                    root.manager.transition.direction = "right"
+                    root.manager.current = "quizz"
+                    app.get_running_app().on_press_inscr()
+
+
+<QuizzScreen>:
+    name: "quizz"
+    BoxLayout:
+        Button:
+            text: 'Back to menu'
+            on_press:
+                app.root.current = 'inscription'
+                root.manager.transition.direction = "left"
+                app.get_running_app().on_press_return()
