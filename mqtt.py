@@ -16,6 +16,7 @@ client.on_message = on_message
 client.username_pw_set("baptiste", "salut")
 client.connect(broker, 1883)
 client.loop_start()
+client.publish("test/test", "message")
 #tu peux mettre client.subscribe("topic")
 #ou alors si tu veux publish c'est client.publish("topic", "message")
 
