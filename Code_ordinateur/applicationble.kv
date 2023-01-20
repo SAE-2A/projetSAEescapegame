@@ -1,0 +1,117 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+WindowManager:
+    LoginWindow: 
+    FirstWindow:
+    
+
+<LoginWindow>
+    name:"login"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Bienvenue"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+        
+        Label:
+            color:192,192,192,1
+            text:"Nombres de Joueurs"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.6}
+
+          
+        TextInput:
+            id:identif
+            hint_text:"Nom Equipe"
+            multiline:False
+            font_size:40
+            size_hint: (None,None)
+            width: 240
+            height:60
+            halign:"center"
+            pos_hint:{"x":0.190, "y":0.5}        
+        
+        Button: 
+            id: load_people
+            text:"valider"
+            font_size : 40
+            size_hint : (None,None)
+            background_color:  (0,0,0,.15)
+            width: 150
+            height: 60
+            pos_hint: {"x":.52, "y": .5}
+            on_release: 
+                app.nombre_joueur()
+                root.manager.transition = NoTransition()
+                app.root.current = "hub"
+                app.root.get_screen("login").ids.identif.text = ""
+        
+
+<FirstWindow>
+    name:"hub"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Bienvenue"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+
+        Label:
+            color:192,192,192,1
+            text:"Pour commencer il faut être bien installé"
+            font_size:30
+            size_hint_x:1
+            size_hint_y: None
+            width : 100
+            pos_hint:{"x":0, "y":0.65}
+        
+        Label:
+            id: distance
+            color:192,192,192,1
+            text:""
+            font_size:30
+            size_hint_x:1
+            size_hint_y:.25
+            pos_hint:{"x":0, "y":0.3}
+            
+            
+
+        Button:
+            id:start
+            text:"Commencer"
+            background_color:.225,0.225,.225,.3
+            size_hint_x:0.3
+            size_hint_y:0.07
+            pos_hint:{"x":0.35, "y":0.15}
+            on_press :
+                app.update_ltxt()
+ 
+
+    

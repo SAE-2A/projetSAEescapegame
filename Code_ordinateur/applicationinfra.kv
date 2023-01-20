@@ -1,0 +1,494 @@
+#:import NoTransition kivy.uix.screenmanager.NoTransition
+
+WindowManager:
+    FirstWindow: 
+    SecondWindow:
+    ThirdWindow:
+    ForthWindow:
+    FifthWindow:
+    FinalWindow:
+
+<FirstWindow>
+    name: "first_enigme"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Question 1"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+        
+        Label:
+            color:192,192,192,1
+            text:"Comment on appelle le type de message \n qui a pour destination 255.255.255.255 ? "
+            font_size:25
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.5}
+
+          
+        Label:  
+            color:192,192,192,1
+            text:"1) Multicast"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"3) Unicast"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.15}   
+        
+        Label:  
+            color:192,192,192,1
+            text:"2) Broadcast"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"4) Cela n'existe pas"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.15}   
+        Label:
+            id : error
+            color: 1,0,0,1
+            text: ""
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.5-(self.size_hint_x/2),"y":-0.08}  
+
+        Button : 
+            id : reponse_un
+            text : "Réponse"    
+            font_size : 28
+            background_color : (0,0,0,0.5)
+            size_hint : (None,None)
+            pos_hint: {"x": 0.38, "y": .1}
+            width : 200
+            height : 50
+            on_release : 
+                app.root.current = app.first_answer()
+                root.manager.transition = NoTransition()
+                
+
+<SecondWindow>
+    name:"second_enigme"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Question 2"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+        
+        Label:
+            color:192,192,192,1
+            text:"Le prix des madeleines dans le distributeur ? "
+            font_size:25
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.5}
+
+          
+        Label:  
+            color:192,192,192,1
+            text:"1) 1 €"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"3) 1.5 €"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.15}   
+        
+        Label:  
+            color:192,192,192,1
+            text:"2) 2 €"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"4) 1.75 €"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.15}   
+        Label:
+            id : error
+            color: 1,0,0,1
+            text: ""
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.5-(self.size_hint_x/2),"y":-0.08}  
+
+        Button : 
+            id : reponse_un
+            text : "Réponse"    
+            font_size : 28
+            background_color : (0,0,0,0.5)
+            size_hint : (None,None)
+            pos_hint: {"x": 0.38, "y": .1}
+            width : 200
+            height : 50
+            on_release : 
+                app.root.current = app.second_answer()
+                root.manager.transition = NoTransition()
+                
+
+
+<ThirdWindow>
+    name:"third_enigme"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Question 3"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+        
+        Label:
+            color:192,192,192,1
+            text:"Que signifie IP ? "
+            font_size:25
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.5}
+
+          
+        Label:  
+            color:192,192,192,1
+            text:"1) Interconnection Protocol"
+            font_size:32
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.2,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"3) Internet Protocol"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.15}   
+        
+        Label:  
+            color:192,192,192,1
+            text:"2) Internet Port"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.35} 
+
+        Label:  
+            color:192,192,192,1
+            text:"4) Irish Pub "
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.15}   
+        Label:
+            id : error
+            color: 1,0,0,1
+            text: ""
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.5-(self.size_hint_x/2),"y":-0.08}  
+
+        Button : 
+            id : reponse_un
+            text : "Réponse"    
+            font_size : 28
+            background_color : (0,0,0,0.5)
+            size_hint : (None,None)
+            pos_hint: {"x": 0.38, "y": .1}
+            width : 200
+            height : 50
+            on_release : 
+                app.root.current = app.third_answer()
+                root.manager.transition = NoTransition()
+
+
+
+<ForthWindow>
+    name: "forth_enigme"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Question 4"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+        
+        Label:
+            color:192,192,192,1
+            text:"Qui est le meilleur Prof ?"
+            font_size:25
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.5}
+
+          
+        Label:  
+            color:192,192,192,1
+            text:"1) Mr Fevrier"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"3) Mr Sanchez"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.15}   
+        
+        Label:  
+            color:192,192,192,1
+            text:"2) Mme Hovsepian"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"4) Mr Damoiseaux"
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.15}   
+        Label:
+            id : error
+            color: 1,0,0,1
+            text: ""
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.5-(self.size_hint_x/2),"y":-0.08}  
+
+        Button : 
+            id : reponse_un
+            text : "Réponse"    
+            font_size : 28
+            background_color : (0,0,0,0.5)
+            size_hint : (None,None)
+            pos_hint: {"x": 0.38, "y": .1}
+            width : 200
+            height : 50
+            on_release : 
+                app.root.current = app.forth_answer()
+                root.manager.transition = NoTransition()
+                
+
+<FifthWindow>
+    name: "fifth_enigme"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Question 5"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+        
+        Label:
+            color:192,192,192,1
+            text:"Que signifie DNS?"
+            font_size:25
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.5}
+
+          
+        Label:  
+            color:192,192,192,1
+            text:"1) Domain Name Server"
+            font_size:30
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"3) Domain Name System"
+            font_size:30
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":-.3,"y":0.15}   
+        
+        Label:  
+            color:192,192,192,1
+            text:"2) Domain Name Service"
+            font_size:30
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.35}  
+
+        Label:  
+            color:192,192,192,1
+            text:"4) Diabolo Negroni Saké "
+            font_size:30
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.3,"y":0.15}   
+        Label:
+            id : error
+            color: 1,0,0,1
+            text: ""
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.5-(self.size_hint_x/2),"y":-0.08}  
+
+        Button : 
+            id : reponse_un
+            text : "Réponse"    
+            font_size : 28
+            background_color : (0,0,0,0.5)
+            size_hint : (None,None)
+            pos_hint: {"x": 0.38, "y": .1}
+            width : 200
+            height : 50
+            on_release : 
+                app.root.current = app.fifth_answer()
+                root.manager.transition = NoTransition()
+
+
+<FinalWindow>
+    name: "final"
+    FloatLayout:
+        size:root.width, root.height
+        canvas.before:
+            Color:
+                rgba:1,1,1,1
+            Rectangle:
+                pos:self.pos
+                size:self.size
+
+        spacing:1
+
+        Label:
+            color:192,192,192,1
+            text:"Bravo"
+            font_size:40
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.7}
+        
+        Label:
+            color:192,192,192,1
+            text:"Ecouter la radio pour avoir le dernier code "
+            font_size:25
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.0,"y":0.5}
+
+          
+        TextInput:
+            id:identif
+            hint_text:"Code"
+            multiline:False
+            font_size:40
+            size_hint: (None,None)
+            width: 240
+            height:60
+            halign:"center"
+            pos_hint:{"x":0.30, "y":0.5}    
+
+        Label:
+            id : error
+            color: 1,0,0,1
+            text: ""
+            font_size:36
+            size_hint_x:1
+            size_hint_y:.3
+            pos_hint:{"x":0.5-(self.size_hint_x/2),"y":-0.08}      
+        
+        Button : 
+            id : reponse_un
+            text : "Réponse"    
+            font_size : 28
+            background_color : (0,0,0,0.5)
+            size_hint : (None,None)
+            pos_hint: {"x": 0.38, "y": .1}
+            width : 200
+            height : 50
+            on_release : 
+                app.root.current = app.final_answer()
+                
